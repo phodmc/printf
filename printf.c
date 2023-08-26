@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 			switch (format[i])
 			{
 				case 'c':
-					_writechar(va_arg(args, int));
+					_writechar((char)va_arg(args, int));
 					break;
 				case 'd':
 				case 'i':
@@ -34,6 +34,7 @@ int _printf(const char *format, ...)
 					print_string(str);
 					break;
 				default:
+					_writechar('%');
 					_writechar(format[i]);
 					break;
 			}
